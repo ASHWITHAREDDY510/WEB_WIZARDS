@@ -15,16 +15,19 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(
-      "http://127.0.0.1:8000/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(form)
-      }
-    );
+const API_URL = import.meta.env.VITE_API_URL;
+
+const response = await fetch(
+  `${API_URL}/contact`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(form)
+  }
+);
+```
 
     const data = await response.json();
     alert(data.message);

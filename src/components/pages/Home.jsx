@@ -7,7 +7,7 @@ import {
   FaTrophy
 } from "react-icons/fa";
 
-import Counter from "../../../src/components/Counter";
+import Counter from "../Counter";
 
 function Home() {
   return (
