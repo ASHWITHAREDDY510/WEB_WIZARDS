@@ -1,12 +1,13 @@
-FROM node:20-alpine
+FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY backend/package*.json ./
-RUN npm install --omit=dev
+COPY backend/requirements.txt .
 
-COPY backend ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY backend .
 
 EXPOSE 8080
 
-CMD ["npm", "start"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
