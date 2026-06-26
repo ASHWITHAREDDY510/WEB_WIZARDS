@@ -27,7 +27,7 @@ const response = await fetch(
     body: JSON.stringify(form)
   }
 );
-```
+
 
     const data = await response.json();
     alert(data.message);
